@@ -1,4 +1,4 @@
-import 'package:praktikum_dino_jump/game_object.dart';
+import 'game_object.dart';
 
 class Dino extends GameObject {
   Dino(double x, double y) : super(x, y);

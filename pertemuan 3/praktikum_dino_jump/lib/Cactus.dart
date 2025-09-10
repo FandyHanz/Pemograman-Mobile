@@ -1,9 +1,8 @@
-import 'package:praktikum_dino_jump/game_object.dart';
+import 'game_object.dart';
 
 class Cactus extends GameObject {
   Cactus(double x, double y) : super(x, y);
 
-  @override
   void move() {
     print('Cactus is moving to the left...');
   }
