@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mydj/pages/lihat_jurnal_page.dart';
+import 'package:mydj/pages/buat_jurnal_page.dart';
 
 class SimpleHomePage extends StatefulWidget {
   const SimpleHomePage({super.key, required this.title});
@@ -19,6 +20,13 @@ class _SimpleHomePageState extends State<SimpleHomePage> {
             builder: (context) => LihatJurnalPage(title: 'Lihat Jurnal')));
   }
 
+  void _MadeAnJurnal(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => BuatJurnalPage(title: 'Buat Jurnal')));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +43,9 @@ class _SimpleHomePageState extends State<SimpleHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _MadeAnJurnal(context);
+                },
                 child: const Text('Buat Jurnal'),
               ),
               const SizedBox(width: 20),
