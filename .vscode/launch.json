@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Pertemuan 5",
+            "cwd": "Pertemuan 5",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Pertemuan 5 (profile mode)",
+            "cwd": "Pertemuan 5",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Pertemuan 5 (release mode)",
+            "cwd": "Pertemuan 5",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "dart_image_grabber",
+            "cwd": "Pertemuan 4\\dart_image_grabber",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "dart_image_grabber (profile mode)",
+            "cwd": "Pertemuan 4\\dart_image_grabber",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "dart_image_grabber (release mode)",
+            "cwd": "Pertemuan 4\\dart_image_grabber",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
