@@ -55,7 +55,7 @@ class _SimpleHomePageState extends State<SimpleHomePage> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/images/1.png', width: 150, height: 150),
+          Image.asset('assets/images/2.png', width: 150, height: 150),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
