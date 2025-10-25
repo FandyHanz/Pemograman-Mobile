@@ -37,7 +37,7 @@ class _LihatJurnalPage extends State<LihatJurnalPage> {
                                   .toString()),
                               onTap: () => {},
                             ),
-                        separatorBuilder: (context, index) => Divider(),
+                        separatorBuilder: (context, index) => const Divider(),
                         itemCount: daftarJurnal.length))
               ],
             )));

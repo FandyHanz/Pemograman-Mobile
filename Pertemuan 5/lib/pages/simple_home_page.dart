@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mydj/pages/lihat_info_aplikasi.dart';
 import 'package:mydj/pages/lihat_jurnal_page.dart';
 import 'package:mydj/pages/buat_jurnal_page.dart';
+import 'package:mydj/pages/lihat_akun.dart';
 
 class SimpleHomePage extends StatefulWidget {
   const SimpleHomePage({super.key, required this.title});
@@ -27,6 +29,21 @@ class _SimpleHomePageState extends State<SimpleHomePage> {
             builder: (context) => BuatJurnalPage(title: 'Buat Jurnal')));
   }
 
+  void _LihatAkun(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => LihatAkun(title: 'Lihat akun')));
+  }
+
+  void _LihatInfoAplikasi(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                LihatInfoAplikasi(title: 'Lihat Info Aplikasi')));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +65,7 @@ class _SimpleHomePageState extends State<SimpleHomePage> {
                 },
                 child: const Text('Buat Jurnal'),
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: 10),
               ElevatedButton(
                 onPressed: () {
                   _OpenLihatJurnal(context);
@@ -56,7 +73,30 @@ class _SimpleHomePageState extends State<SimpleHomePage> {
                 child: const Text('Lihat Jurnal'),
               ),
             ],
-          )
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  _LihatAkun(context);
+                },
+                child: const Text('Akun'),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  _LihatInfoAplikasi(context);
+                },
+                child: const Text('Tentang Aplikasi'),
+              ),
+            ],
+          ),
         ],
       )),
     );
