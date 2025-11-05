@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 void main() {
   MyDjTI3C app = const MyDjTI3C();
   runApp(ChangeNotifierProvider(
-      create: (context) => DataProvider(),
-      child: const MyDjTI3C() ,
+    create: (context) => DataProvider(),
+    child: const MyDjTI3C(),
   ));
 }
 
