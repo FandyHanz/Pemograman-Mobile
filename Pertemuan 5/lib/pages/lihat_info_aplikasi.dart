@@ -29,7 +29,7 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
       ),
       body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
