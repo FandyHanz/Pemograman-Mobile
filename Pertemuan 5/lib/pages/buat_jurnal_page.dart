@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mydj/Data/Jurnal.dart';
+import 'package:mydj/components/media_selector.dart';
 import 'package:mydj/data_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -136,6 +137,18 @@ class _BuatJurnalPageState extends State<BuatJurnalPage> {
                 SizedBox(
                   height: 10,
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text('Foto Kegiatan'),
+                SizedBox(
+                  height: 10,
+                ),
+                MediaSelector(),
+                SizedBox(height: 10),
+                Text('Video Kegiatan'),
+                SizedBox(height: 10),
+                MediaSelector(mediaType: MediaType.video),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
