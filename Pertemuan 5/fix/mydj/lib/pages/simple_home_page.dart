@@ -19,21 +19,21 @@ class _SimpleHomePageState extends State<SimpleHomePage> {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => LihatJurnalPage(title: 'Lihat Jurnal')));
+            builder: (context) => const LihatJurnalPage(title: 'Lihat Jurnal')));
   }
 
   void _MadeAnJurnal(BuildContext context) {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => BuatJurnalPage(title: 'Buat Jurnal')));
+            builder: (context) => const BuatJurnalPage(title: 'Buat Jurnal')));
   }
 
   void _LihatAkun(BuildContext context) {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => LihatAkun(title: 'Lihat akun')));
+            builder: (context) => const LihatAkun(title: 'Lihat akun')));
   }
 
   void _LihatInfoAplikasi(BuildContext context) {
@@ -41,7 +41,7 @@ class _SimpleHomePageState extends State<SimpleHomePage> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                LihatInfoAplikasi(title: 'Lihat Info Aplikasi')));
+                const LihatInfoAplikasi(title: 'Lihat Info Aplikasi')));
   }
 
   @override

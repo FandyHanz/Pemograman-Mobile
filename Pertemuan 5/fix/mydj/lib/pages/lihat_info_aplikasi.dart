@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LihatInfoAplikasi extends StatefulWidget {
-  LihatInfoAplikasi({super.key, required this.title});
+  const LihatInfoAplikasi({super.key, required this.title});
   final String title;
 
   @override
@@ -32,7 +31,7 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -43,7 +42,7 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
                       color: Colors.black))
             ],
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -54,7 +53,7 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
                       color: Colors.black))
             ],
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -62,7 +61,7 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
                   style: TextStyle(fontSize: 15, color: Colors.black))
             ],
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -70,7 +69,7 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
                   style: TextStyle(fontSize: 15, color: Colors.black))
             ],
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

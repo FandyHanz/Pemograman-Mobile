@@ -25,7 +25,7 @@ class _PasswordFieldState extends State<PasswordField> {
       controller: widget.controller,
       obscureText: _obscureText, // Sembunyikan teks
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         labelText: 'Password',
         // Tambahkan ikon mata untuk toggle password
         suffixIcon: IconButton(

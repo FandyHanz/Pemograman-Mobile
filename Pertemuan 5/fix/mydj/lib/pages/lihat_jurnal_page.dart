@@ -4,7 +4,7 @@ import 'package:mydj/data_provider.dart';
 import 'package:provider/provider.dart';
 
 class LihatJurnalPage extends StatefulWidget {
-  LihatJurnalPage({super.key, required this.title});
+  const LihatJurnalPage({super.key, required this.title});
   final String title;
 
   @override
@@ -24,7 +24,7 @@ class _LihatJurnalPage extends State<LihatJurnalPage> {
           title: Text(widget.title),
         ),
         body: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 Expanded(

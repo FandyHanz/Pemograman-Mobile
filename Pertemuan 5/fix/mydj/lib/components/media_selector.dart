@@ -42,17 +42,17 @@ class _MediaSelectorState extends State<MediaSelector> {
                             onPressed: () {
                               _selectFromCamera();
                             },
-                            child: Icon(Icons.photo_camera))),
-                    SizedBox(width: 8),
+                            child: const Icon(Icons.photo_camera))),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: FilledButton(
-                        child: Icon(Icons.photo_library),
+                        child: const Icon(Icons.photo_library),
                         onPressed: () {
                           _selectFromGallery();
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
                     Expanded(
@@ -60,7 +60,7 @@ class _MediaSelectorState extends State<MediaSelector> {
                             onPressed: () {
                               _deleteSelected();
                             },
-                            child: Icon(Icons.delete)))
+                            child: const Icon(Icons.delete)))
                   ],
                 ),
               )
@@ -77,7 +77,7 @@ class _MediaSelectorState extends State<MediaSelector> {
     Widget placeholderWidget;
 // Cek jenis medianya apakah foto atau video
     if (widget.mediaType == MediaType.photo) {
-      icon = Icon(Icons.image_not_supported, color: Colors.grey);
+      icon = const Icon(Icons.image_not_supported, color: Colors.grey);
       caption = 'No photo';
       placeholderWidget = Image.file(
         File(_mediaPath),
@@ -85,7 +85,7 @@ class _MediaSelectorState extends State<MediaSelector> {
         fit: BoxFit.fitWidth, // <-- Tinggi otomatis sesuai rasio
       );
     } else {
-      icon = Icon(Icons.videocam_off, color: Colors.grey);
+      icon = const Icon(Icons.videocam_off, color: Colors.grey);
       caption = 'No video';
       placeholderWidget = VideoPreview(path: _mediaPath);
     }
@@ -94,7 +94,7 @@ class _MediaSelectorState extends State<MediaSelector> {
       return SizedBox(
         height: 56, // <-- Tinggi default TextField
         child: Row(
-          children: [icon, SizedBox(width: 8), Text(caption)],
+          children: [icon, const SizedBox(width: 8), Text(caption)],
         ),
       );
     }

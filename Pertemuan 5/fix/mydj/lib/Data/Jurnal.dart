@@ -1,5 +1,5 @@
 class Jurnal {
-  DateTime _waktuPembuatan;
+  final DateTime _waktuPembuatan;
   String kelas;
   String mapel;
   int jamKe;
@@ -18,5 +18,5 @@ class Jurnal {
     this.topik = '',
   }) : _waktuPembuatan = DateTime.now();
 
-  DateTime get waktuPembuatan => this._waktuPembuatan;
+  DateTime get waktuPembuatan => _waktuPembuatan;
 }

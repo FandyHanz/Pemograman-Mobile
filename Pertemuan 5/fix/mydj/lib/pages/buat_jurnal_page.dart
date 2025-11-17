@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mydj/Data/Jurnal.dart';
 import 'package:mydj/components/media_selector.dart';
@@ -6,7 +5,7 @@ import 'package:mydj/data_provider.dart';
 import 'package:provider/provider.dart';
 
 class BuatJurnalPage extends StatefulWidget {
-  BuatJurnalPage({super.key, required this.title});
+  const BuatJurnalPage({super.key, required this.title});
   final String title;
 
   @override
@@ -25,13 +24,13 @@ class _BuatJurnalPageState extends State<BuatJurnalPage> {
   String topik = '';
   void _simpanJurnal(BuildContext context) {
     Jurnal j = Jurnal(
-        kelas: this.kelas,
-        mapel: this.mapel,
-        jamKe: this.jamKe,
-        tujuanPembelajaran: this.tujuanPembelajaran,
-        kegiatanPembelajaran: this.kegiatanPembelajaran,
-        dimensiProfilPelajarPancasila: this.dimensiProfilPelajarPancasila,
-        topik: this.topik);
+        kelas: kelas,
+        mapel: mapel,
+        jamKe: jamKe,
+        tujuanPembelajaran: tujuanPembelajaran,
+        kegiatanPembelajaran: kegiatanPembelajaran,
+        dimensiProfilPelajarPancasila: dimensiProfilPelajarPancasila,
+        topik: topik);
     DataProvider dp = context.read<DataProvider>();
     dp.tambahJurnal(j);
   }
@@ -40,20 +39,20 @@ class _BuatJurnalPageState extends State<BuatJurnalPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(label),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         TextField(
           maxLines: 5,
           decoration: InputDecoration(
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
             labelText: info,
           ),
-          onChanged: (value) => {attach = value!},
+          onChanged: (value) => {attach = value},
         ),
       ],
     );
@@ -67,31 +66,31 @@ class _BuatJurnalPageState extends State<BuatJurnalPage> {
             title: Text(widget.title)),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Kelas: '),
-                SizedBox(
+                const Text('Kelas: '),
+                const SizedBox(
                   height: 10,
                 ),
                 TextField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Masukan Kelas',
                   ),
                   onChanged: (value) => {kelas = value},
                 ),
-                SizedBox(height: 10),
-                Text('Mapel: '),
-                SizedBox(
+                const SizedBox(height: 10),
+                const Text('Mapel: '),
+                const SizedBox(
                   height: 10,
                 ),
                 DropdownButtonFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'masukan mata pelajaran'),
-                    items: [
+                    items: const [
                       DropdownMenuItem(value: 'IPA', child: Text('IPA')),
                       DropdownMenuItem(value: 'IPS', child: Text('IPS')),
                       DropdownMenuItem(value: 'BI', child: Text('BI')),
@@ -106,16 +105,16 @@ class _BuatJurnalPageState extends State<BuatJurnalPage> {
                           value: 'B.MANDARIN', child: Text('B.MANDARIN'))
                     ],
                     onChanged: (value) => {mapel = value!}),
-                SizedBox(height: 10),
-                Text('Jam pelajaran: '),
-                SizedBox(
+                const SizedBox(height: 10),
+                const Text('Jam pelajaran: '),
+                const SizedBox(
                   height: 10,
                 ),
                 DropdownButtonFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'masukan Jam Pelajaran'),
-                    items: [
+                    items: const [
                       DropdownMenuItem(value: 1, child: Text('Satu')),
                       DropdownMenuItem(value: 2, child: Text('Dua')),
                       DropdownMenuItem(value: 3, child: Text('Tiga')),
@@ -134,26 +133,26 @@ class _BuatJurnalPageState extends State<BuatJurnalPage> {
                     'Kegiatan: ', 'Isikan kegiatan', 'kegiatanPembelajaran'),
                 _TextArea('Dimensi Profil Pelajar Pancasila: ',
                     'Isikan dimensi profil', 'dimensiProfilPelajarPancasila'),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text('Foto Kegiatan'),
-                SizedBox(
+                const Text('Foto Kegiatan'),
+                const SizedBox(
                   height: 10,
                 ),
-                MediaSelector(),
-                SizedBox(height: 10),
-                Text('Video Kegiatan'),
-                SizedBox(height: 10),
-                MediaSelector(mediaType: MediaType.video),
+                const MediaSelector(),
+                const SizedBox(height: 10),
+                const Text('Video Kegiatan'),
+                const SizedBox(height: 10),
+                const MediaSelector(mediaType: MediaType.video),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                       onPressed: () => {_simpanJurnal(context)},
-                      child: Text('Simpan')),
+                      child: const Text('Simpan')),
                 )
               ],
             ),

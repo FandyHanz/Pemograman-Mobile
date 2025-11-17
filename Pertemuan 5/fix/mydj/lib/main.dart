@@ -21,6 +21,6 @@ class MyDjTI3C extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: LoginPage());
+        home: const LoginPage());
   }
 }

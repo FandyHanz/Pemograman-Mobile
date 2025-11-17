@@ -3,6 +3,8 @@ import 'package:mydj/components/password_field.dart';
 import 'package:mydj/pages/simple_home_page.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _LoginPageState();
@@ -32,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SimpleHomePage(title: 'Beranda'),
+          builder: (context) => const SimpleHomePage(title: 'Beranda'),
         ),
       );
     }
@@ -40,18 +42,18 @@ class _LoginPageState extends State<LoginPage> {
 
   void _OpenHomePage(BuildContext context) {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => SimpleHomePage(title: 'MyDj')));
+        MaterialPageRoute(builder: (context) => const SimpleHomePage(title: 'MyDj')));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Selamat Datang'),
+        title: const Text('Selamat Datang'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: Center(
             child: Column(
@@ -61,38 +63,38 @@ class _LoginPageState extends State<LoginPage> {
                   width: 200,
                   height: 200,
                 ),
-                Text(
+                const Text(
                   'Log-In',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 50,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text('Username'),
+                const Text('Username'),
                 TextField(
                   controller: _usernameController, // 2. Pasang controller
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       border: OutlineInputBorder(), labelText: 'Username'),
                   // Hapus onChanged
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text('Password'),
+                const Text('Password'),
                 PasswordField(
                   controller: _passwordController, // 2. Pasang controller
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 FilledButton(
                     onPressed: () {
                       login(context);
                     },
-                    child: Text('Login'))
+                    child: const Text('Login'))
               ],
             ),
           ),

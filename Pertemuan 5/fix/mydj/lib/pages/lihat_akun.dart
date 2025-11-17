@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mydj/components/password_field.dart';
 import 'package:mydj/pages/simple_home_page.dart';
 
 class LihatAkun extends StatefulWidget {
-  LihatAkun({super.key, required this.title});
+  const LihatAkun({super.key, required this.title});
   final String title;
 
   @override
@@ -16,7 +15,7 @@ class LihatAkun extends StatefulWidget {
 class _LihatAkun extends State<LihatAkun> {
   void _OpenHomePage(BuildContext context) {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => SimpleHomePage(title: 'MyDj')));
+        MaterialPageRoute(builder: (context) => const SimpleHomePage(title: 'MyDj')));
   }
 
   @override
@@ -27,52 +26,52 @@ class _LihatAkun extends State<LihatAkun> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         ),
         body: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Ganti Sandi',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  Divider(
+                  const Divider(
                     thickness: 2,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text('Sandi saat ini'),
-                  PasswordField(),
-                  SizedBox(
+                  const Text('Sandi saat ini'),
+                  const PasswordField(),
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text('Sandi baru'),
-                  PasswordField(),
-                  SizedBox(
+                  const Text('Sandi baru'),
+                  const PasswordField(),
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text('Konfirmasi Sandi'),
-                  PasswordField(),
-                  SizedBox(
+                  const Text('Konfirmasi Sandi'),
+                  const PasswordField(),
+                  const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
                     width: double.infinity, // <-- Tambahkan ini
                     child:
-                        FilledButton(onPressed: () {}, child: Text('Simpan')),
+                        FilledButton(onPressed: () {}, child: const Text('Simpan')),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     'Keluar',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  Divider(
+                  const Divider(
                     thickness: 2,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
@@ -81,10 +80,10 @@ class _LihatAkun extends State<LihatAkun> {
                       onPressed: () {
                         _OpenHomePage(context);
                       },
-                      child: Text('Keluar dari aplikasi'),
+                      child: const Text('Keluar dari aplikasi'),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                 ],

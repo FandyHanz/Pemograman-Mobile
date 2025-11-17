@@ -4,7 +4,7 @@ import 'package:video_player/video_player.dart';
 
 class VideoPreview extends StatefulWidget {
   final String path;
-  VideoPreview({super.key, required this.path});
+  const VideoPreview({super.key, required this.path});
 
   @override
   State<StatefulWidget> createState() {
