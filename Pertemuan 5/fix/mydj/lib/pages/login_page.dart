@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mydj/components/password_field.dart';
+import 'package:mydj/data_provider.dart';
 import 'package:mydj/pages/simple_home_page.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -25,24 +27,23 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  void login(BuildContext context) {
+  Future<void> _login(BuildContext context) async {
+    DataProvider provider = context.read<DataProvider>();
     // 3. Baca nilai dari controller
     String namaPengguna = _usernameController.text;
     String sandi = _passwordController.text;
 
     if (namaPengguna == 'guru' && sandi == 'guru') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const SimpleHomePage(title: 'Beranda'),
-        ),
-      );
+      await provider.saveLoginInfo(namaPengguna, sandi);
+      if (context.mounted) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SimpleHomePage(title: 'Beranda'),
+          ),
+        );
+      }
     }
-  }
-
-  void _OpenHomePage(BuildContext context) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const SimpleHomePage(title: 'MyDj')));
   }
 
   @override
@@ -92,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 FilledButton(
                     onPressed: () {
-                      login(context);
+                      _login(context);
                     },
                     child: const Text('Login'))
               ],

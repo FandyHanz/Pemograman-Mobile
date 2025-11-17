@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mydj/Data/login_info.dart';
 import 'package:mydj/components/password_field.dart';
+import 'package:mydj/pages/login_page.dart';
 import 'package:mydj/pages/simple_home_page.dart';
 
 class LihatAkun extends StatefulWidget {
@@ -13,9 +15,13 @@ class LihatAkun extends StatefulWidget {
 }
 
 class _LihatAkun extends State<LihatAkun> {
-  void _OpenHomePage(BuildContext context) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const SimpleHomePage(title: 'MyDj')));
+  void _OpenLoginPage(BuildContext context){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+  }
+
+  Future<void> _logout(BuildContext context) async {
+    await LoginInfo.deleteFromSharedPreferences();
+    _OpenLoginPage(context);
   }
 
   @override
@@ -78,7 +84,7 @@ class _LihatAkun extends State<LihatAkun> {
                     width: double.infinity, // <-- Tambahkan ini
                     child: FilledButton(
                       onPressed: () {
-                        _OpenHomePage(context);
+                        _logout(context);
                       },
                       child: const Text('Keluar dari aplikasi'),
                     ),
