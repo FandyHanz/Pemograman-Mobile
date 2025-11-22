@@ -14,7 +14,7 @@ class StartupPage extends StatefulWidget {
 }
 
 class _StartupPageWidget extends State<StartupPage> {
-  bool _isLoggedIn = false;
+  bool ?_isLoggedIn = false;
 
   @override
   Widget build(BuildContext context) {
