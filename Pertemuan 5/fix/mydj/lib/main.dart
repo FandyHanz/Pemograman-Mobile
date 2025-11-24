@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mydj/data_provider.dart';
-import 'package:mydj/pages/login_page.dart';
 import 'package:mydj/pages/startup_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  MyDjTI3C app = const MyDjTI3C();
   runApp(ChangeNotifierProvider(
     create: (context) => DataProvider(),
     child: const MyDjTI3C(),

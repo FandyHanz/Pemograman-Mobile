@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mydj/Data/login_info.dart';
 import 'package:mydj/components/password_field.dart';
 import 'package:mydj/pages/login_page.dart';
-import 'package:mydj/pages/simple_home_page.dart';
 
 class LihatAkun extends StatefulWidget {
   const LihatAkun({super.key, required this.title});
