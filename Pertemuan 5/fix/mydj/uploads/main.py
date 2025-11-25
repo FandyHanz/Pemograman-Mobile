@@ -40,13 +40,13 @@ async def upload_jurnal(
 ):
     
     if image:
-        image_path = os.path.join(UPLOAD_FOLDER, image.filename)
+        image_path = os.path.join(UPLOAD_FOLDER, image.filename or "")
         with open(image_path, "wb") as buffer:
             shutil.copyfileobj(image.file, buffer)
         
     video_path = None
     if video:
-        video_path = os.path.join(UPLOAD_FOLDER, video.filename)
+        video_path = os.path.join(UPLOAD_FOLDER, video.filename or "")
         with open(video_path, "wb") as buffer:
             shutil.copyfileobj(video.file, buffer)
 
