@@ -4,9 +4,9 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import shutil
+import uvicorn 
 
-
-app = FastAPI(title= "MyDJ_server", description= "Server sederhana Aplikasi myDJ")
+app = FastAPI(title="MyDJ_server", description="Server sederhana Aplikasi myDJ")
 
 app.add_middleware(
     CORSMiddleware,
@@ -28,26 +28,32 @@ async def upload_jurnal(
     kelas: str = Form(...),
     mapel: str = Form(...),
     jam: int = Form(...),
-
     tujuanPembelajaran: str = Form(...),
-    materiTopikPembelajaran: str = Form(...),
+    topik: str = Form(...), # You decided to use 'topik' here
     kegiatanPembelajaran: str = Form(...),
     dimensiProfilPelajarPancasila: str = Form(...),
-    createdAt: str = Form(...),
+    waktuPembuatan: str = Form(...),
     image: UploadFile | None = File(None),
-    video: UploadFile | None = File(None),
-    image_path = None
+    video: UploadFile | None = File(None)
 ):
     
+    # FIX 1: Initialize the actual variables we use later
+    final_image_path = None
+    final_video_path = None
+
+    # Handle Image
     if image:
-        image_path = os.path.join(UPLOAD_FOLDER, image.filename or "")
-        with open(image_path, "wb") as buffer:
+        filename = image.filename.split('/')[-1] 
+        # FIX 2: Assign to the variable we initialized above
+        final_image_path = os.path.join(UPLOAD_FOLDER, filename)
+        with open(final_image_path, "wb") as buffer:
             shutil.copyfileobj(image.file, buffer)
         
-    video_path = None
+    # Handle Video
     if video:
-        video_path = os.path.join(UPLOAD_FOLDER, video.filename or "")
-        with open(video_path, "wb") as buffer:
+        filename = video.filename.split('/')[-1]
+        final_video_path = os.path.join(UPLOAD_FOLDER, filename)
+        with open(final_video_path, "wb") as buffer:
             shutil.copyfileobj(video.file, buffer)
 
     jurnal_data = {
@@ -55,12 +61,13 @@ async def upload_jurnal(
         "mapel": mapel,
         "jam": jam,
         "tujuanPembelajaran": tujuanPembelajaran,
-        "materiTopikPembelajaran": materiTopikPembelajaran,
+        "topik": topik, 
         "kegiatanPembelajaran": kegiatanPembelajaran,
         "dimensiProfilPelajarPancasila": dimensiProfilPelajarPancasila,
-        "createdAt": createdAt,
-        "image": image_path,
-        "video": video_path
+        "waktuPembuatan": waktuPembuatan,
+        # FIX 3: Save the correct variable
+        "image": final_image_path, 
+        "video": final_video_path
     }
     
     DATA_FILE = "uploads/data.json"
@@ -68,8 +75,11 @@ async def upload_jurnal(
         with open(DATA_FILE, "w") as f:
             json.dump([], f, indent=2)
             
-    with open(DATA_FILE, "r") as f:
-        data = json.load(f)
+    try:
+        with open(DATA_FILE, "r") as f:
+            data = json.load(f)
+    except json.JSONDecodeError:
+        data = [] 
         
     data.append(jurnal_data)
     
@@ -78,17 +88,17 @@ async def upload_jurnal(
         
     return JSONResponse({
         "message": "Jurnal berhasil di-upload!",
-        "data": 
-        {
+        "data": {
             "kelas": kelas,
             "mapel": mapel,
             "jam": jam,
-            "tujuanPembelajaran": tujuanPembelajaran,
-            "materiTopikPembelajaran": materiTopikPembelajaran,
-            "kegiatanPembelajaran": kegiatanPembelajaran,
-            "dimensiProfilPelajarPancasila": dimensiProfilPelajarPancasila,
-            "createdAt": createdAt,
-            "image_url": image_path,
-            "video_url": video_path,
+            "topik": topik,
+            "createdAt": waktuPembuatan,
+            # FIX 4: Return the safe variables (which are None if no file exists)
+            "image_url": final_image_path,
+            "video_url": final_video_path,
         }
     })
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=5000)

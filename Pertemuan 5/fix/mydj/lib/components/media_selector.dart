@@ -7,7 +7,12 @@ enum MediaType { photo, video }
 
 class MediaSelector extends StatefulWidget {
   final MediaType mediaType;
-  const MediaSelector({super.key, this.mediaType = MediaType.photo});
+  const MediaSelector(
+      {super.key,
+      this.mediaType = MediaType.photo,
+      this.onMediaChanged = _emptyFunction});
+  final void Function(String path) onMediaChanged;
+  static void _emptyFunction(String value) {}
 
   @override
   State<StatefulWidget> createState() {
@@ -121,6 +126,7 @@ class _MediaSelectorState extends State<MediaSelector> {
       setState(() {
         _mediaPath = media.path;
       });
+      widget.onMediaChanged(_mediaPath);
     }
   }
 
@@ -131,6 +137,7 @@ class _MediaSelectorState extends State<MediaSelector> {
       setState(() {
         _mediaPath = media.path;
       });
+      widget.onMediaChanged(_mediaPath);
     }
   }
 
@@ -138,5 +145,6 @@ class _MediaSelectorState extends State<MediaSelector> {
     setState(() {
       _mediaPath = '';
     });
+    widget.onMediaChanged(_mediaPath);
   }
 }

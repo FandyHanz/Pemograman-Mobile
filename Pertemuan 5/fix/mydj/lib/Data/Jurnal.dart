@@ -7,16 +7,20 @@ class Jurnal {
   String kegiatanPembelajaran;
   String dimensiProfilPelajarPancasila;
   String topik;
+  String? fotoKegiatanPath;
+  String? videoKegiatanPath;
 
-  Jurnal({
-    this.kelas = '',
-    this.mapel = '',
-    this.jamKe = 0,
-    this.tujuanPembelajaran = '',
-    this.kegiatanPembelajaran = '',
-    this.dimensiProfilPelajarPancasila = '',
-    this.topik = '',
-  }) : _waktuPembuatan = DateTime.now();
+  Jurnal(
+      {this.kelas = '',
+      this.mapel = '',
+      this.jamKe = 0,
+      this.tujuanPembelajaran = '',
+      this.kegiatanPembelajaran = '',
+      this.dimensiProfilPelajarPancasila = '',
+      this.topik = '',
+      this.fotoKegiatanPath,
+      this.videoKegiatanPath})
+      : _waktuPembuatan = DateTime.now();
 
   DateTime get waktuPembuatan => _waktuPembuatan;
 }
