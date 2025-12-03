@@ -1,0 +1,50 @@
+[
+  {
+    "kelas": "ok",
+    "mapel": "BI",
+    "jam": 4,
+    "tujuanPembelajaran": "ok",
+    "topik": "ok",
+    "kegiatanPembelajaran": "ok",
+    "dimensiProfilPelajarPancasila": "ok",
+    "waktuPembuatan": "2025-12-03T15:19:11.992415",
+    "image": "uploads\\IMG_20251109_190418.jpg",
+    "video": "uploads\\5e95c930-27bd-48b3-bdb8-fecf687439971014073369007266082.mp4"
+  },
+  {
+    "kelas": "ok",
+    "mapel": "IPS",
+    "jam": 3,
+    "tujuanPembelajaran": "ok",
+    "topik": "ok",
+    "kegiatanPembelajaran": "ok",
+    "dimensiProfilPelajarPancasila": "ok",
+    "waktuPembuatan": "2025-12-03T15:21:02.139584",
+    "image": "uploads\\91e402b8-d8dc-4ea0-bf90-62c0cf1a48276009284035168108416.jpg",
+    "video": "uploads\\baebae20-8421-4949-b48c-12bcf6c298541210403198871498703.mp4"
+  },
+  {
+    "kelas": "ti-3c",
+    "mapel": "BI",
+    "jam": 3,
+    "tujuanPembelajaran": "ok",
+    "topik": "ok",
+    "kegiatanPembelajaran": "ok",
+    "dimensiProfilPelajarPancasila": "ok",
+    "waktuPembuatan": "2025-12-03T15:23:52.309619",
+    "image": "uploads\\IMG_20251109_190418.jpg",
+    "video": "uploads\\c0efa640-150d-4da2-9a69-851cc69e7e4d6850001713888280897.mp4"
+  },
+  {
+    "kelas": "ti-3c",
+    "mapel": "IPS",
+    "jam": 3,
+    "tujuanPembelajaran": "ok",
+    "topik": "ok",
+    "kegiatanPembelajaran": "ok",
+    "dimensiProfilPelajarPancasila": "ok",
+    "waktuPembuatan": "2025-12-03T15:27:35.378144",
+    "image": "uploads\\IMG_20251109_190418.jpg",
+    "video": "uploads\\fe78bc76-16d5-4b78-b4f6-84539ab9e5c44577502013799329858.mp4"
+  }
+]

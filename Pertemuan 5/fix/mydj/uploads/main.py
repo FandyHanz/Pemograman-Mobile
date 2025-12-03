@@ -94,7 +94,6 @@ async def upload_jurnal(
             "jam": jam,
             "topik": topik,
             "createdAt": waktuPembuatan,
-            # FIX 4: Return the safe variables (which are None if no file exists)
             "image_url": final_image_path,
             "video_url": final_video_path,
         }

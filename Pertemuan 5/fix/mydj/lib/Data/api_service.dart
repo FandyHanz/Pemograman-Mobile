@@ -19,15 +19,16 @@ class ApiService {
     request.fields['tujuanPembelajaran'] = jurnal.tujuanPembelajaran;
     request.fields['topik'] = jurnal.topik; // Check if this should be 'topik'
     request.fields['kegiatanPembelajaran'] = jurnal.kegiatanPembelajaran;
-    request.fields['dimensiProfilPelajarPancasila'] = jurnal.dimensiProfilPelajarPancasila;
+    request.fields['dimensiProfilPelajarPancasila'] =
+        jurnal.dimensiProfilPelajarPancasila;
     request.fields['waktuPembuatan'] = jurnal.waktuPembuatan.toIso8601String();
 
     // -----------------------------
     // 2) Handle Image (Foto)
     // -----------------------------
     // FIX: Check null first to avoid crash
-    if (jurnal.fotoKegiatanPath != null && jurnal.fotoKegiatanPath!.isNotEmpty) {
-      
+    if (jurnal.fotoKegiatanPath != null &&
+        jurnal.fotoKegiatanPath!.isNotEmpty) {
       var multipartFile = await http.MultipartFile.fromPath(
         'image',
         jurnal.fotoKegiatanPath!,
@@ -41,8 +42,8 @@ class ApiService {
     // -----------------------------
     // 3) Handle Video
     // -----------------------------
-    if (jurnal.videoKegiatanPath != null && jurnal.videoKegiatanPath!.isNotEmpty) {
-      
+    if (jurnal.videoKegiatanPath != null &&
+        jurnal.videoKegiatanPath!.isNotEmpty) {
       var videoData = await http.MultipartFile.fromPath(
         'video',
         jurnal.videoKegiatanPath!,
