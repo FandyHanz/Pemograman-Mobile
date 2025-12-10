@@ -72,7 +72,7 @@ class _BuatJurnalPageState extends State<BuatJurnalPage> {
     );
 
     try {
-      await ApiService.uploadJurnal(jurnal);
+      // await ApiService.uploadJurnal(jurnal);
 
       if (context.mounted) {
         // Close Loading Dialog

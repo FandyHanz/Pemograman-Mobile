@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:mydj/data_provider.dart';
-import 'package:mydj/pages/startup_page.dart';
-import 'package:provider/provider.dart';
+import 'pages/simple_home_page.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => DataProvider(),
-    child: const MyDjTI3C(),
-  ));
+  runApp(const MyApp());
 }
 
-class MyDjTI3C extends StatelessWidget {
-  const MyDjTI3C({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'MyDJ - Jurnal guru',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        ),
-        home: const StartupPage());
+      debugShowCheckedModeBanner: false,
+      title: 'Age Estimator',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
+      ),
+      home: const HomeScreen(),
+    );
   }
 }
