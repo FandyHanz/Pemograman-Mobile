@@ -180,7 +180,7 @@ async def predict_age(request: Request, file: UploadFile = File(...)):
     if not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="File harus gambar")
 
-    # 2. Simpan Gambar ke Disk (Agar bisa diakses via URL)
+    # 2. Simpan Gambar
     filename = f"upload_{file.filename}"
     file_path = os.path.join(UPLOAD_FOLDER, filename)
     
@@ -188,14 +188,14 @@ async def predict_age(request: Request, file: UploadFile = File(...)):
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
             
-        # 3. Preprocessing (Baca dari path yang baru disimpan)
+        # 3. Preprocessing
         processed_img = preprocess_image(file_path)
         
         if processed_img is None:
-            os.remove(file_path) # Hapus jika gagal baca
+            os.remove(file_path)
             return JSONResponse({"error": "Gambar rusak/tidak terbaca"}, status_code=400)
 
-        # 4. Feature Extraction & Prediction
+        # 4. Feature Extraction
         feat_pzm = extract_pzm(processed_img).reshape(1, -1)
         feat_bif = extract_bif(processed_img).reshape(1, -1)
         feat_aam = extract_aam(processed_img).reshape(1, -1)
@@ -207,21 +207,33 @@ async def predict_age(request: Request, file: UploadFile = File(...)):
         feat_fusion = np.hstack([feat_pzm_norm, feat_aam_norm, feat_bif_norm])
         feat_final = models['pca_global'].transform(feat_fusion)
         
-        pred_class = models['svm'].predict(feat_final)[0]
+        # 5. Prediksi & Probabilitas
+        # Cek apakah model mendukung probabilitas langsung
+        if hasattr(models['svm'], "predict_proba"):
+            probs = models['svm'].predict_proba(feat_final)[0]
+        else:
+            # Fallback: Gunakan decision_function dan Softmax jika model tidak punya predict_proba
+            d = models['svm'].decision_function(feat_final)[0]
+            probs = np.exp(d) / np.sum(np.exp(d))
+
+        pred_class = np.argmax(probs) # Ambil index dengan probabilitas tertinggi
         pred_label = AGE_LABELS[pred_class]
+        confidence = float(probs[pred_class]) * 100 # Persentase keyakinan (0-100)
+
+        # Siapkan data Histogram (List probabilitas untuk semua kelas)
+        histogram_data = [float(p) * 100 for p in probs] 
         
-        # 5. Buat URL Gambar untuk HP
-        # Menggunakan IP Server dari request yang masuk
+        # 6. Buat URL Gambar
         base_url = str(request.base_url) 
         image_url = f"{base_url}uploads/{filename}"
 
-        # 6. RETURN JSON (Format Disesuaikan dengan Flutter)
-        # Struktur ini yang dicari oleh Flutter: result['data']['prediction_label']
         return JSONResponse({
             "status": "success",
             "data": {
                 "prediction_label": pred_label,
                 "class_id": int(pred_class),
+                "confidence": round(confidence, 2), # Contoh: 85.50
+                "histogram": histogram_data,        # Contoh: [10.5, 85.5, 2.0, ...]
                 "image_url": image_url
             }
         })
@@ -230,7 +242,6 @@ async def predict_age(request: Request, file: UploadFile = File(...)):
         import traceback
         traceback.print_exc()
         return JSONResponse({"error": "Internal Server Error", "details": str(e)}, status_code=500)
-
 # =============================================================================
 # 5. RUN SERVER
 # =============================================================================
