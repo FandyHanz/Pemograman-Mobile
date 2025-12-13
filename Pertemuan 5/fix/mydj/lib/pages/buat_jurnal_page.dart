@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mydj/Data/Jurnal.dart';
-import 'package:mydj/Data/api_service.dart';
+import 'package:mydj/data/Jurnal.dart';
+import 'package:mydj/data/api_service.dart';
 import 'package:mydj/components/media_selector.dart';
 import 'package:mydj/data_provider.dart';
 import 'package:provider/provider.dart';

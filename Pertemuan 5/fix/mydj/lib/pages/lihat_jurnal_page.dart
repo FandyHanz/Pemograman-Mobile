@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mydj/Data/Jurnal.dart';
+import 'package:mydj/data/Jurnal.dart';
 import 'package:mydj/data_provider.dart';
 import 'package:provider/provider.dart';
 
