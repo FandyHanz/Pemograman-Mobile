@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/simple_home_page.dart';
+import 'pages/landing_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Age Estimator',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const LandingPage(),
     );
   }
 }
