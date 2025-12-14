@@ -24,7 +24,10 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.blue,
+
+        // Opsional: Mengubah warna teks/icon di AppBar menjadi putih agar kontras
+        foregroundColor: Colors.white,
       ),
       body: Center(
           child: Column(
@@ -91,7 +94,6 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
                       color: Colors.black))
             ],
           ),
-
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
