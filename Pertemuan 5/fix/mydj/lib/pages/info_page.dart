@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class LihatInfoAplikasi extends StatefulWidget {
   const LihatInfoAplikasi({super.key});
@@ -103,13 +106,41 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
                   role: 'Back-end Application',
                   github: 'FandyHanz'),
               _buildTeamMember(
-                  name: 'Dewita Anggraeni',
+                  name: 'Dewita Anggraini',
                   role: 'UI-UX Application Designer',
-                  github: ''),
+                  github: 'DewitaA12'),
               _buildTeamMember(
                   name: 'Rifqi Rizqullah',
                   role: 'Front-end Application Designer',
                   github: ''),
+              SizedBox(height: 4),
+              RichText(
+                text: TextSpan(
+                  text: 'Link Repositori Projek Dewa-Daru',
+                  style: const TextStyle( // Use const for the style
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      final Uri url = Uri.parse('https://github.com/FandyHanz/Pemograman-Mobile/tree/main/Pertemuan%205/fix/mydj');
+                      // Attempt to launch the URL
+                      if (await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                        // The URL was launched successfully
+                        print('URL launched successfully: $url');
+                      } else {
+                        // Failed to launch the URL. Show an error message (e.g., a SnackBar)
+                        print('Could not launch $url');
+                        // Optional: Show a SnackBar to the user
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Gagal membuka link: $url'),
+                          ),
+                        );
+                      }
+                    },
+                ),
+              )
             ],
           ),
         ),
