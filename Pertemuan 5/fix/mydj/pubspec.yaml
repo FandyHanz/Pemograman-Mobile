@@ -38,6 +38,13 @@ dependencies:
   video_player: ^2.10.0
   shared_preferences: ^2.5.3
   http_parser: ^4.1.2
+  flutter_launcher_icons: ^0.14.4
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/images/Gemini_Generated_Image_coern8coern8coer.png" # Ganti dengan nama file aslimu
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

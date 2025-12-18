@@ -104,15 +104,15 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
               _buildTeamMember(
                   name: 'Fandy Wahyu Hanzura',
                   role: 'Back-end Application',
-                  github: 'FandyHanz'),
+                  github: '@FandyHanz'),
               _buildTeamMember(
                   name: 'Dewita Anggraini',
                   role: 'UI-UX Application Designer',
-                  github: 'DewitaA12'),
+                  github: '@DewitaA12'),
               _buildTeamMember(
                   name: 'Rifqi Rizqullah',
                   role: 'Front-end Application Designer',
-                  github: ''),
+                  github: '@Qipink'),
               SizedBox(height: 4),
               RichText(
                 text: TextSpan(
