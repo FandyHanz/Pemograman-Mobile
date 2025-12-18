@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Prediksi Umur AI"), backgroundColor: Colors.blueAccent, foregroundColor: Colors.white),
+      appBar: AppBar(title: const Text("Prediksi Umur"), backgroundColor: Colors.blueAccent, foregroundColor: Colors.white),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(

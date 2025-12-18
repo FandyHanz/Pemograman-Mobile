@@ -27,6 +27,21 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons
+                      .face_retouching_natural, // [TODO]: Ganti dengan Logo App kamu
+                  size: 100,
+                  color: Colors.white,
+                ),
+              ),
+
+              const SizedBox(height: 10),
               // --- LOGO / JUDUL BESAR ---
               const Text(
                 'Dewa-Daru',
@@ -34,7 +49,8 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 32,
-                  color: Colors.blue, // Sedikit sentuhan warna agar tidak monoton
+                  color:
+                      Colors.blue, // Sedikit sentuhan warna agar tidak monoton
                   letterSpacing: 1.2,
                 ),
               ),
@@ -51,10 +67,11 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
                 ),
               ),
               const SizedBox(height: 10),
-              
+
               // --- VERSION BADGE ---
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
                   color: Colors.blue.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(20),
@@ -62,43 +79,37 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
                 child: const Text(
                   'Version 1.0 (Final)',
                   style: TextStyle(
-                    fontSize: 12, 
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blue
-                  ),
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue),
                 ),
               ),
-              
-              const SizedBox(height: 40), 
+
+              const SizedBox(height: 40),
 
               // --- BAGIAN TEAM (DIBUAT LEBIH RAPI) ---
               const Text(
                 'Dibuat Oleh:',
                 style: TextStyle(
-                  fontSize: 14, 
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500
-                ),
+                    fontSize: 14,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 20),
 
               // Menggunakan Widget terpisah agar rapi
               _buildTeamMember(
-                name: 'Fandy Wahyu Hanzura', 
-                role: 'Back-end Application',
-                github: 'FandyHanz'
-                
-              ),
+                  name: 'Fandy Wahyu Hanzura',
+                  role: 'Back-end Application',
+                  github: 'FandyHanz'),
               _buildTeamMember(
-                name: 'Dewita Anggraeni', 
-                role: 'UI-UX Application Designer',
-                github: ''
-              ),
+                  name: 'Dewita Anggraeni',
+                  role: 'UI-UX Application Designer',
+                  github: ''),
               _buildTeamMember(
-                name: 'Rifqi Rizqullah', 
-                role: 'Front-end Application Designer',
-                github: ''
-              ),
+                  name: 'Rifqi Rizqullah',
+                  role: 'Front-end Application Designer',
+                  github: ''),
             ],
           ),
         ),
@@ -109,7 +120,8 @@ class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
   // --- WIDGET KHUSUS MEMBER ---
   // Ini membuat layout nama dan role menjadi tumpuk (vertikal)
   // sehingga tidak perlu pusing memikirkan indentasi kiri-kanan.
-  Widget _buildTeamMember({required String name, required String role, required String github}) {
+  Widget _buildTeamMember(
+      {required String name, required String role, required String github}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0), // Jarak antar orang
       child: Column(
