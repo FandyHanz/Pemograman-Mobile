@@ -62,11 +62,20 @@ class LandingPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
 
-                  const SizedBox(height: 10),
-
                   // --- DESKRIPSI SINGKAT ---
                   const Text(
-                    "Deteksi wajah - Dalam Rentang Umur", // [TODO]: Ganti Judul
+                    "Deteksi wajah", // [TODO]: Ganti Judul
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+
+                  const Text(
+                    "Dalam Rentang Umur", // [TODO]: Ganti Judul
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -109,13 +118,12 @@ class LandingPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 10),
-                          Icon(Icons.arrow_forward_rounded),
                         ],
                       ),
                     ),
                   ),
 
-                  const Spacer(),
+                  const SizedBox(height: 5,),
 
                    SizedBox(
                     width: double.infinity,
@@ -147,7 +155,6 @@ class LandingPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 10),
-                          Icon(Icons.arrow_forward_rounded),
                         ],
                       ),
                     ),

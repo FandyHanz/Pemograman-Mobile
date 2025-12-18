@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class LihatInfoAplikasi extends StatefulWidget {
-  const LihatInfoAplikasi({super.key, title});
+  const LihatInfoAplikasi({super.key});
   final String title = "Info Aplikasi";
 
   @override
@@ -12,101 +11,141 @@ class LihatInfoAplikasi extends StatefulWidget {
 }
 
 class _LihatInfoAplikasi extends State<LihatInfoAplikasi> {
-  // final Uri _url = Uri.parse('https://fandyhanz.vercel.app');
-  // Future<void> _launchUrl() async {
-  //   if (!await launchUrl(_url)) {
-  //     throw Exception('could not launch $_url');
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         backgroundColor: Colors.blue,
-
-        // Opsional: Mengubah warna teks/icon di AppBar menjadi putih agar kontras
         foregroundColor: Colors.white,
+        centerTitle: true, // Judul AppBar rata tengah
       ),
       body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 30.0),
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // --- LOGO / JUDUL BESAR ---
+              const Text(
+                'Dewa-Daru',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 32,
+                  color: Colors.blue, // Sedikit sentuhan warna agar tidak monoton
+                  letterSpacing: 1.2,
+                ),
+              ),
+              const SizedBox(height: 8),
+
+              // --- DESKRIPSI ---
+              Text(
+                'Deteksi Wajah Dalam Rentang Umur',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  fontSize: 18,
+                  color: Colors.grey[700],
+                ),
+              ),
+              const SizedBox(height: 10),
+              
+              // --- VERSION BADGE ---
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Text(
+                  'Version 1.0 (Final)',
+                  style: TextStyle(
+                    fontSize: 12, 
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue
+                  ),
+                ),
+              ),
+              
+              const SizedBox(height: 40), 
+
+              // --- BAGIAN TEAM (DIBUAT LEBIH RAPI) ---
+              const Text(
+                'Dibuat Oleh:',
+                style: TextStyle(
+                  fontSize: 14, 
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w500
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Menggunakan Widget terpisah agar rapi
+              _buildTeamMember(
+                name: 'Fandy Wahyu Hanzura', 
+                role: 'Back-end Application',
+                github: 'FandyHanz'
+                
+              ),
+              _buildTeamMember(
+                name: 'Dewita Anggraeni', 
+                role: 'UI-UX Application Designer',
+                github: ''
+              ),
+              _buildTeamMember(
+                name: 'Rifqi Rizqullah', 
+                role: 'Front-end Application Designer',
+                github: ''
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // --- WIDGET KHUSUS MEMBER ---
+  // Ini membuat layout nama dan role menjadi tumpuk (vertikal)
+  // sehingga tidak perlu pusing memikirkan indentasi kiri-kanan.
+  Widget _buildTeamMember({required String name, required String role, required String github}) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0), // Jarak antar orang
+      child: Column(
         children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('Dewa-Daru',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      color: Colors.black))
-            ],
+          Text(
+            name,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              color: Colors.black87,
+            ),
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('Deteksi Wajah Dalam Rentang Umur',
-                  style: TextStyle(
-                      fontStyle: FontStyle.italic,
-                      fontSize: 20,
-                      color: Colors.black))
-            ],
+          const SizedBox(height: 4), // Jarak kecil antara Nama dan Role
+          Text(
+            role,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.normal,
+              fontSize: 14,
+              color: Colors.grey[600], // Warna role lebih pudar
+            ),
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('Version: 1.0 (Final)',
-                  style: TextStyle(fontSize: 15, color: Colors.black))
-            ],
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('Dibuat Oleh: ',
-                  style: TextStyle(fontSize: 15, color: Colors.black))
-            ],
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('- Fandy Wahyu Hanzura As Back-end Application',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: Colors.black))
-            ],
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('- Dewita Anggraeni As Ui-Ux Application Designer',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: Colors.black))
-            ],
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('- Rifqi Rizqullah As Front-end Application Designer',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: Colors.black))
-            ],
+
+          const SizedBox(height: 4), // Jarak kecil antara Nama dan Role
+          Text(
+            github,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.normal,
+              fontSize: 14,
+              color: Colors.grey[600], // Warna role lebih pudar
+            ),
           ),
         ],
-      )),
+      ),
     );
   }
 }
