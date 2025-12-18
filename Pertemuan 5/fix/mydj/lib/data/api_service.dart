@@ -5,7 +5,7 @@ import 'package:http_parser/http_parser.dart'; // <--- Wajib Import ini
 
 class ApiService {
   // Ganti IP sesuai Laptop kamu
-  final String baseUrl = 'http://10.57.31.101:5000'; // Sesuaikan port juga
+  final String baseUrl = 'https://fandyhan-dewadaru.hf.space'; // Sesuaikan port juga
 
   Future<Map<String, dynamic>?> predictAge(File imageFile) async {
     try {
