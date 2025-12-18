@@ -248,4 +248,4 @@ async def predict_age(request: Request, file: UploadFile = File(...)):
 # BAGIAN INI SANGAT PENTING AGAR SERVER TIDAK LANGSUNG MATI
 if __name__ == "__main__":
     print("🚀 Menjalankan Server Uvicorn...")
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+    uvicorn.run(app, host="0.0.0.0", port=7860)
